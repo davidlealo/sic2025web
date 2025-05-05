@@ -1,0 +1,8 @@
+@font-face {
+	font-family:'Signature Samsung';
+	src:	url('SignatureSamsungWEB.woff')format('woff'),
+			url('SignatureSamsungWEB.woff2')format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+

@@ -134,3 +134,10 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+html5/index.html
+html5/fonts/preview.html
+html5/fonts/SAMSUNGSHARPSANS-BOLD.TTF
+html5/fonts/SAMSUNGSHARPSANS-REGULAR.TTF
+html5/fonts/SignatureSamsungWEB.woff2
+html5/fonts/SAMSUNGSHARPSANS-MEDIUM.TTF
+html5/fonts/SignatureSamsungWEB.woff
