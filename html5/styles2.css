@@ -1,0 +1,905 @@
+/* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ─── 1. Fuentes Samsung Sharp Sans ─────────────────────────────── */
+@font-face {
+  font-family: 'Samsung Sharp Sans';
+  src: url('fonts/SAMSUNGSHARPSANS-REGULAR.TTF') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Samsung Sharp Sans';
+  src: url('fonts/SAMSUNGSHARPSANS-MEDIUM.TTF') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Samsung Sharp Sans';
+  src: url('fonts/SAMSUNGSHARPSANS-BOLD.TTF') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── 2. Variables ─────────────────────────────────────────────── */
+:root {
+  /* Colores principales */
+  --primary: #0057B8;         /* Azul Samsung */
+  --secondary: #003366;       /* Azul oscuro */
+  --accent: #00B2A9;          /* Verde agua */
+  
+  /* Colores de secciones */
+  --blue-light: #E6F3FF;      /* Azul claro para fondos */
+  --blue-gradient: linear-gradient(135deg, #0057B8 0%, #003366 100%);
+  --purple: #6E4DFF;          /* Púrpura */
+  --purple-gradient: linear-gradient(135deg, #6E4DFF 0%, #5435C8 100%);
+  --orange: #FF9E44;          /* Naranja */
+  --orange-gradient: linear-gradient(135deg, #FF9E44 0%, #FF7A00 100%);
+  
+  /* Neutros */
+  --white: #FFFFFF;
+  --light-gray: #F5F7FA;
+  --mid-gray: #E2E8F0;
+  --text-gray: #64748B;
+  --dark: #222222;
+  
+  /* Espaciado */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+  
+  /* Bordes */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  
+  /* Sombras */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* ─── 3. Reset y estilos base ───────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Samsung Sharp Sans', 'Poppins', sans-serif;
+  color: var(--dark);
+  line-height: 1.6;
+  background-color: var(--white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+ul, ol {
+  list-style-position: inside;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* ─── 4. Contenedores y utilidades ───────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section-light {
+  background-color: var(--white);
+  padding: var(--space-xl) 0;
+}
+
+.section-blue {
+  background: var(--blue-gradient);
+  color: var(--white);
+  padding: var(--space-xl) 0;
+}
+
+.section-purple {
+  background: var(--purple-gradient);
+  color: var(--white);
+  padding: var(--space-xl) 0;
+}
+
+.section-orange {
+  background: var(--orange-gradient);
+  color: var(--white);
+  padding: var(--space-xl) 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.section-title.light {
+  color: var(--white);
+}
+
+.big-text {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin-bottom: var(--space-md);
+  font-weight: 500;
+}
+
+/* ─── 5. Navegación ───────────────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+  padding: var(--space-sm) 0;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.samsung-logo {
+  height: 2rem;
+  margin-right: var(--space-sm);
+}
+
+.menu {
+  display: flex;
+  gap: var(--space-md);
+  list-style: none;
+  align-items: center;
+}
+
+.menu a {
+  font-weight: 500;
+  position: relative;
+}
+
+.menu a:hover {
+  color: var(--primary);
+}
+
+.menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+.btn-menu {
+  background: var(--primary);
+  color: var(--white) !important;
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--radius-full);
+  transition: all 0.3s ease;
+}
+
+.btn-menu:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.btn-menu:hover::after {
+  display: none;
+}
+
+#toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background: var(--dark);
+  border-radius: 10px;
+}
+
+@media (max-width: 992px) {
+  .hamburger {
+    display: flex;
+  }
+  
+  .menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--white);
+    padding: var(--space-md);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path 0.3s ease-in-out;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  #toggle:checked ~ .menu {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+/* ─── 6. Hero ───────────────────────────────────────────────────── */
+.hero {
+  padding: 8rem 0 5rem;
+  background-color: var(--light-gray);
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.hero-content {
+  position: relative;
+  padding-left: var(--space-md);
+}
+
+.accent-border {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 70%;
+  background: var(--accent);
+  border-radius: var(--radius-full);
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  color: var(--primary);
+  line-height: 1.1;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-lg);
+  color: var(--text-gray);
+}
+
+.hero-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.hero-image::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 80%;
+  height: 80%;
+  background: var(--blue-gradient);
+  opacity: 0.3;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  z-index: -1;
+}
+
+.hero-image img {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-image {
+    order: -1;
+  }
+}
+
+/* ─── 7. Quiénes somos ───────────────────────────────────────────── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.highlight-box {
+  background: var(--blue-light);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  margin: var(--space-md) 0;
+  border-left: 4px solid var(--primary);
+}
+
+.highlight-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: block;
+}
+
+.highlight-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.about-image img {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── 8. Skills Box ────────────────────────────────────────────── */
+.skills-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ─── 9. Requisitos ───────────────────────────────────────────── */
+.requisitos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+.requisito-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-md);
+  border-top: 4px solid var(--primary);
+}
+
+.requisito-icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: var(--space-sm);
+}
+
+.requisito-card h3 {
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+  font-size: 1.5rem;
+}
+
+.requisito-card ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.requisito-card li {
+  margin-bottom: var(--space-xs);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.requisito-card li::before {
+  content: "•";
+  color: var(--accent);
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: -0.3rem;
+}
+
+@media (max-width: 768px) {
+  .requisitos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── 10. Dedicación ───────────────────────────────────────────── */
+.dedication-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+
+.dedication-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+  flex: 1;
+  min-width: 150px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dedication-item h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.dedication-arrow {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.modality-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-top: var(--space-lg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modality-text h3 {
+  font-size: 1.5rem;
+}
+
+.modality-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.modality-icon img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: var(--space-xs);
+}
+
+@media (max-width: 768px) {
+  .dedication-grid {
+    flex-direction: column;
+  }
+  
+  .dedication-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .modality-box {
+    flex-direction: column;
+  }
+}
+
+/* ─── 11. Proceso de inscripción ───────────────────────────────── */
+.inscription-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.step-icon {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.step-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.inscription-quota {
+  background: var(--white);
+  color: var(--dark);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.inscription-quota h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-sm);
+  color: var(--primary);
+}
+
+.big-number {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--primary);
+}
+
+@media (max-width: 992px) {
+  .inscription-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
+
+/* ─── 12. Métricas ───────────────────────────────────────────── */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+
+.metric-box {
+  background: var(--light-gray);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border-top: 3px solid var(--primary);
+}
+
+.metric-box h4 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.metric-box span {
+  font-size: 1.1rem;
+  color: var(--text-gray);
+}
+
+/* ─── 13. Por qué formarte ahora ───────────────────────────────── */
+.why-now-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.growth-rate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: var(--space-md) 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.rate-bar {
+  height: 10px;
+  flex-grow: 1;
+  background: linear-gradient(to right, rgba(255,255,255,0.3), rgba(255,255,255,0.8));
+  border-radius: var(--radius-full);
+  margin: 0 var(--space-sm);
+}
+
+.why-now-image img {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 992px) {
+  .why-now-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── 14. Formulario ───────────────────────────────────────────── */
+.form-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-md);
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 1px solid var(--mid-gray);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* ─── 15. Preguntas frecuentes ───────────────────────────────────── */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+details {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-sm);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+summary {
+  padding: var(--space-md);
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: '+';
+  position: absolute;
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+  content: '-';
+}
+
+.faq-content {
+  padding: 0 var(--space-md) var(--space-md);
+}
+
+/* ─── 16. Footer ───────────────────────────────────────────────── */
+footer {
+  background: var(--secondary);
+  color: var(--white);
+  padding: var(--space-lg) 0;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+.footer-logo p {
+  margin-bottom: var(--space-sm);
+}
+
+.partners {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.partners img {
+  height: 30px;
+}
+
+.partners span {
+  font-size: 1.5rem;
+}
+
+.footer-contact a {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.footer-contact a:hover {
+  opacity: 0.8;
+}
+
+.footer-social {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+  background: var(--white);
+  color: var(--primary);
+}
+
+.footer-copyright {
+  text-align: center;
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ─── 17. Media Queries ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .big-text {
+    font-size: 1.3rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .partners {
+    justify-content: center;
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .requisito-card {
+    padding: var(--space-sm);
+  }
+  
+  .step-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .step-icon {
+    margin: 0 auto var(--space-sm);
+  }
+  
+  .modality-box {
+    padding: var(--space-sm);
+  }
+}
