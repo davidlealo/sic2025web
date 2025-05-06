@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles2.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Añadimos Feather Icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
   <title>Samsung Innovation Campus – Chile</title>
 </head>
 <body>
@@ -83,7 +85,7 @@
       <div class="requisitos-grid">
         <div class="requisito-card">
           <div class="requisito-icon">
-            <img src="images/icon-knowledge.svg" alt="Conocimientos">
+            <i data-feather="book-open"></i>
           </div>
           <h3>Conocimientos previos en:</h3>
           <ul>
@@ -96,7 +98,7 @@
         
         <div class="requisito-card">
           <div class="requisito-icon">
-            <img src="images/icon-tools.svg" alt="Herramientas">
+            <i data-feather="tool"></i>
           </div>
           <h3>Herramientas:</h3>
           <ul>
@@ -141,7 +143,7 @@
           <h3>¿Cuál es la modalidad del programa?</h3>
         </div>
         <div class="modality-icon">
-          <img src="images/icon-virtual.svg" alt="Clases virtuales">
+          <i data-feather="monitor"></i>
           <span>Clases virtuales</span>
         </div>
       </div>
@@ -156,7 +158,7 @@
         <div class="inscription-steps">
           <div class="step-item">
             <div class="step-icon">
-              <img src="images/icon-form.svg" alt="Formulario">
+              <i data-feather="file-text"></i>
             </div>
             <div class="step-content">
               <h3>1. Diligencia nuestro formulario de inscripción.</h3>
@@ -164,7 +166,7 @@
           </div>
           <div class="step-item">
             <div class="step-icon">
-              <img src="images/icon-email.svg" alt="Email">
+              <i data-feather="mail"></i>
             </div>
             <div class="step-content">
               <h3>2. Nos comunicaremos contigo vía correo electrónico para confirmar tu continuidad.</h3>
@@ -172,7 +174,7 @@
           </div>
           <div class="step-item">
             <div class="step-icon">
-              <img src="images/icon-confirm.svg" alt="Confirmación">
+              <i data-feather="check-circle"></i>
             </div>
             <div class="step-content">
               <h3>3. Enviaremos a tu correo la confirmación del estado de tu inscripción y la asignación de cupo.</h3>
@@ -180,7 +182,7 @@
           </div>
           <div class="step-item">
             <div class="step-icon">
-              <img src="images/icon-start.svg" alt="Inicio">
+              <i data-feather="play-circle"></i>
             </div>
             <div class="step-content">
               <h3>4. ¡Inicia tu proceso de aprendizaje con Samsung Innovation Campus!</h3>
@@ -307,9 +309,9 @@
           <p>Contacto: <a href="mailto:contacto@innovacien.org">contacto@innovacien.org</a></p>
         </div>
         <div class="footer-social">
-          <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-          <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-          <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+          <a href="#" aria-label="Facebook"><i data-feather="facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i data-feather="instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
         </div>
       </div>
       <div class="footer-copyright">
@@ -318,5 +320,11 @@
     </div>
   </footer>
 
+  <!-- Script para inicializar Feather Icons -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      feather.replace();
+    });
+  </script>
 </body>
 </html>

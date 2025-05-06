@@ -808,7 +808,7 @@ footer {
 }
 
 .partners span {
-  font-size: 1.5rem;
+  font-size: .5rem;
 }
 
 .footer-contact a {
@@ -903,3 +903,56 @@ footer {
     padding: var(--space-sm);
   }
 }
+
+/* Estilos adicionales para los iconos de Feather */
+
+/* Tamaño y color general de los iconos */
+[data-feather] {
+    width: 36px;
+    height: 36px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+  
+  /* Iconos en las tarjetas de requisitos */
+  .requisito-icon [data-feather] {
+    width: 48px;
+    height: 48px;
+    color: #1428a0; /* Azul de Samsung */
+  }
+  
+  /* Iconos en el proceso de inscripción */
+  .step-icon [data-feather] {
+    width: 42px;
+    height: 42px;
+    color: white;
+  }
+  
+  /* Icono en modalidad del programa */
+  .modality-icon [data-feather] {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    color: white;
+  }
+  
+  /* Iconos en footer social */
+  .footer-social a [data-feather] {
+    width: 24px;
+    height: 24px;
+    color: white;
+    transition: transform 0.3s ease;
+  }
+  
+  .footer-social a:hover [data-feather] {
+    transform: scale(1.2);
+  }
+  
+  /* Alineación vertical para los iconos junto a texto */
+  .modality-icon {
+    display: flex;
+    align-items: center;
+  }
