@@ -109,7 +109,7 @@
   /* ─── 5. Hero ───────────────────────────────────────────────────── */
   .hero {
     height: 100vh;
-    background: url('images/Innovation-Campus-1200x627.jpg')
+    background: url('images/SamsungInnovationCampusEstudiantes-e1732740687602.jpg')
               center / cover no-repeat;
     position: relative;
     display: flex;
@@ -130,6 +130,18 @@
   
   .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
   
+  .hero2 {
+    height: 100vh;
+    background: url('images/Innovation-Campus-1200x627.jpg')
+              center / cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+  }
+
   .btn-primary {
     background: var(--primary);
     color: #ffffff;
