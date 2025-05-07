@@ -956,3 +956,504 @@ footer {
     display: flex;
     align-items: center;
   }
+
+  /* ─── Estilos para la línea de tiempo del programa ─────────────────────── */
+
+/* Contenedor principal de la línea de tiempo - versión desktop */
+.programa-timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Línea central vertical */
+.programa-timeline::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background: var(--blue-gradient);
+  top: 0;
+  bottom: 0;
+  left: 80px;
+  margin-left: -2px;
+  border-radius: var(--radius-full);
+}
+
+/* Tarjetas de timeline */
+.timeline-card {
+  display: flex;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.timeline-card:last-child {
+  margin-bottom: 0;
+}
+
+/* Contenedor del icono */
+.timeline-icon {
+  flex-shrink: 0;
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 10;
+}
+
+/* Círculo que contiene el icono */
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--blue-gradient);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease;
+}
+
+.icon-circle [data-feather] {
+  color: white;
+  width: 36px;
+  height: 36px;
+}
+
+.timeline-card:hover .icon-circle {
+  transform: scale(1.1);
+}
+
+/* Contenido de la tarjeta */
+.timeline-content {
+  flex-grow: 1;
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 25px;
+  position: relative;
+  box-shadow: var(--shadow-md);
+  border-left: 4px solid var(--primary);
+  transition: transform 0.3s ease;
+}
+
+.timeline-card:hover .timeline-content {
+  transform: translateY(-5px);
+}
+
+/* Flecha que apunta al icono */
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: -10px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid white;
+}
+
+/* Estilo para la etiqueta de etapa */
+.timeline-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  background: var(--blue-light);
+  color: var(--primary);
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Título de la etapa */
+.timeline-content h3 {
+  color: var(--primary);
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+/* Fecha de la etapa */
+.timeline-date {
+  color: var(--text-gray);
+  font-size: 1rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+/* Detalles de la etapa */
+.timeline-details {
+  margin-top: 15px;
+}
+
+.timeline-details p {
+  margin-bottom: 15px;
+}
+
+/* Lista de características */
+.timeline-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-features li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+
+.timeline-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* CTA al final del timeline */
+.timeline-cta {
+  text-align: center;
+  margin-top: 60px;
+  background: var(--blue-light);
+  padding: 30px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline-cta p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* ─── Versión móvil de la línea de tiempo ─────────────────────── */
+
+/* Ocultar la versión móvil por defecto (solo se mostrará en pantallas pequeñas) */
+.programa-timeline-mobile {
+  display: none;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Controles de navegación para móvil */
+.mobile-timeline-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.mobile-timeline-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--light-gray);
+  border: none;
+  margin: 0 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.mobile-timeline-btn.active {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+/* Contenedor de slides */
+.mobile-timeline-content {
+  position: relative;
+  height: 450px; /* Altura fija para evitar saltos */
+  overflow: hidden;
+}
+
+/* Slides individuales */
+.mobile-timeline-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  overflow-y: auto;
+  border-top: 4px solid var(--primary);
+}
+
+.mobile-timeline-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+/* Cabecera de slide móvil */
+.mobile-timeline-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.mobile-timeline-header .icon-circle {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.mobile-timeline-header .icon-circle [data-feather] {
+  width: 30px;
+  height: 30px;
+}
+
+/* Media queries para la versión responsive */
+@media (max-width: 992px) {
+  .programa-timeline::before {
+    left: 60px;
+  }
+  
+  .timeline-icon {
+    width: 120px;
+  }
+  
+  .icon-circle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .icon-circle [data-feather] {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .timeline-content h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .programa-timeline {
+    display: none;
+  }
+  
+  .programa-timeline-mobile {
+    display: block;
+  }
+}
+
+/* Script JavaScript para la interactividad */
+@media (max-width: 768px) {
+  /* Aquí añadiremos el script para la navegación móvil */
+}
+
+/* Animaciones para la línea de tiempo */
+
+/* Efecto de entrada para las tarjetas */
+.timeline-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.timeline-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efecto de resplandor para los iconos */
+@keyframes iconPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 87, 184, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(0, 87, 184, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 87, 184, 0);
+  }
+}
+
+.timeline-card.visible .icon-circle {
+  animation: iconPulse 2s infinite;
+}
+
+/* Efecto de hover para los botones móviles */
+.mobile-timeline-btn:hover {
+  transform: scale(1.05);
+  background-color: var(--blue-light);
+}
+
+/* Efectos para el CTA */
+.timeline-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 87, 184, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: ctaPulse 3s infinite linear;
+  z-index: 0;
+}
+
+@keyframes ctaPulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+}
+
+.timeline-cta p, .timeline-cta a {
+  position: relative;
+  z-index: 1;
+}
+
+/* Efectos para la versión móvil */
+.mobile-timeline-slide {
+  transform: translateX(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.mobile-timeline-slide.active {
+  transform: translateX(0);
+}
+
+/* Efectos de hover para los botones */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.7s ease;
+}
+
+.btn-primary:hover::after {
+  left: 100%;
+}
+
+.footer-banner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  padding-bottom: var(--space-md);
+}
+
+.footer-tagline {
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.footer-tagline strong {
+  font-size: 2rem;
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.footer-tagline span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer-logo-center img {
+  height: 50px;
+  margin: var(--space-sm);
+}
+
+.footer-section {
+  max-width: 300px;
+}
+
+.footer-partner {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-innovacien-logo {
+  height: 35px;
+  margin: 0.3rem auto;
+}
+
+.footer-program-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.footer-social.centered {
+  justify-content: center;
+  margin-bottom: var(--space-sm);
+}
+
+.footer-banner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  padding-bottom: var(--space-md);
+}
+
+.footer-enabling {
+  max-width: 250px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.footer-logo-center img {
+  height: 50px;
+  margin: var(--space-sm);
+}
+
+.footer-section {
+  max-width: 300px;
+}
+
+.footer-partner {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-innovacien-logo {
+  height: 35px;
+  margin: 0.3rem auto;
+}
+
+.footer-social.centered {
+  justify-content: center;
+  margin-bottom: var(--space-sm);
+}
+
