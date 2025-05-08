@@ -83,6 +83,125 @@
     </div>
   </section>
 
+  <!-- LÍNEA DE TIEMPO DEL PROGRAMA -->
+<section id="cronograma" class="timeline-section">
+  <div class="container">
+    <h2 class="timeline-title">Cronograma del Programa 2025</h2>
+    <p class="timeline-subtitle">Conoce las fechas clave y estructura de nuestro programa de formación</p>
+    
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+      
+      <!-- Curso Cero -->
+      <div class="timeline-item timeline-left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-badge">Fase 1</span>
+          <h3>Curso Cero (Nivelación)</h3>
+          <p class="timeline-date">15 mayo - 15 junio</p>
+          <div class="timeline-details">
+            <p>Online autoguiado (30 horas aproximadamente). Fundamentos de programación en Python obligatorio para postular.</p>
+            <ul>
+              <li>Público: Mixto</li>
+              <li>Modalidad: 100% online</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Big Data Cohorte 1 -->
+      <div class="timeline-item timeline-right">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-badge">Fase 2</span>
+          <h3>Big Data — Cohorte 1</h3>
+          <p class="timeline-date">20 junio - 1 agosto</p>
+          <div class="timeline-details">
+            <p>Formación intensiva en herramientas y técnicas de Big Data.</p>
+            <ul>
+              <li>Público: Mixto</li>
+              <li>Modalidad: Blended (presencial + online)</li>
+              <li>Duración: 6 semanas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- IA Cohorte 1 -->
+      <div class="timeline-item timeline-left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-badge">Fase 3</span>
+          <h3>Inteligencia Artificial — Cohorte 1</h3>
+          <p class="timeline-date">20 junio - 29 agosto</p>
+          <div class="timeline-details">
+            <p>Programa completo de IA con proyectos prácticos y aplicaciones reales.</p>
+            <ul>
+              <li>Público: Mixto</li>
+              <li>Modalidad: Blended (presencial + online)</li>
+              <li>Duración: 10 semanas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Cierre Curso Cero -->
+      <div class="timeline-item timeline-right">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-badge">Hito</span>
+          <h3>Cierre Curso Cero</h3>
+          <p class="timeline-date">31 agosto</p>
+          <div class="timeline-details">
+            <p>Entrega virtual de certificados de nivelación a todos los participantes que completaron el curso cero.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Big Data Cohorte 2 -->
+      <div class="timeline-item timeline-left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-badge">Fase 4</span>
+          <h3>Big Data — Cohorte 2</h3>
+          <p class="timeline-date">5 septiembre - 25 octubre</p>
+          <div class="timeline-details">
+            <p>Segunda edición del curso de Big Data con enfoque en equidad de género.</p>
+            <ul>
+              <li>Público: Exclusivo para mujeres</li>
+              <li>Modalidad: Blended (presencial + online)</li>
+              <li>Duración: 7 semanas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- IA Cohorte 2 -->
+      <div class="timeline-item timeline-right">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-badge">Fase 5</span>
+          <h3>Inteligencia Artificial — Cohorte 2</h3>
+          <p class="timeline-date">5 septiembre - 21 noviembre</p>
+          <div class="timeline-details">
+            <p>Segunda edición del curso de IA con enfoque en equidad de género y proyectos finales.</p>
+            <ul>
+              <li>Público: Exclusivo para mujeres</li>
+              <li>Modalidad: Blended (presencial + online)</li>
+              <li>Duración: 11 semanas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- CTA -->
+    <div class="text-center" style="margin-top: var(--space-xl);">
+      <a href="#inscripcion" class="btn-primary">¡Quiero participar!</a>
+    </div>
+  </div>
+</section>
+
   <!-- REQUISITOS -->
   <section id="requisitos" class="section-light">
     <div class="container">
@@ -1387,6 +1506,24 @@
 
       // Inicializar primer slide
       updateSlide(0);
+    });
+
+    // Animación de la línea de tiempo al hacer scroll
+    document.addEventListener('DOMContentLoaded', function () {
+      const timelineItems = document.querySelectorAll('.timeline-item');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      timelineItems.forEach(item => {
+        observer.observe(item);
+        item.style.animationPlayState = 'paused';
+      });
     });
 
   </script>
