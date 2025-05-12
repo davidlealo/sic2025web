@@ -990,7 +990,6 @@ footer {
 .timeline-card:last-child {
   margin-bottom: 0;
 }
-
 /* Contenedor del icono */
 .timeline-icon {
   flex-shrink: 0;
@@ -999,6 +998,10 @@ footer {
   justify-content: center;
   align-items: flex-start;
   z-index: 10;
+}
+
+.timeline-icon svg {
+  stroke: white; 
 }
 
 /* Círculo que contiene el icono */
@@ -1187,7 +1190,7 @@ footer {
   box-shadow: var(--shadow-md);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.3s ease;
   overflow-y: auto;
   border-top: 4px solid var(--primary);
 }
@@ -1215,6 +1218,14 @@ footer {
 .mobile-timeline-header .icon-circle [data-feather] {
   width: 30px;
   height: 30px;
+}
+
+/* Establecer color blanco a los iconos dentro del contenedor móvil */
+@media (max-width: 768px) {
+  .mobile-timeline-header .icon-circle [data-feather] {
+    stroke: white; /* Cambia el color del contorno del icono a blanco */
+    fill: white;   /* Asegúrate de que el relleno también sea blanco */
+  }
 }
 
 /* Media queries para la versión responsive */
@@ -1252,12 +1263,7 @@ footer {
   }
 }
 
-/* Script JavaScript para la interactividad */
-@media (max-width: 768px) {
-  /* Aquí añadiremos el script para la navegación móvil */
-}
-
-/* Animaciones para la línea de tiempo */
+/* Efectos para la línea de tiempo */
 
 /* Efecto de entrada para las tarjetas */
 .timeline-card {
@@ -1362,6 +1368,7 @@ footer {
 .btn-primary:hover::after {
   left: 100%;
 }
+
 
 .footer-banner {
   display: flex;
@@ -1628,88 +1635,51 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Línea de tiempo de versiones */
-.program-versions {
-  background: var(--light-gray);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
-  box-shadow: var(--shadow-sm);
-}
-
-.version-timeline {
+.version-timeline-horizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   position: relative;
-  padding-left: 100px;
   margin-top: var(--space-md);
+  padding: var(--space-md) 0;
+  border-top: 4px solid var(--primary);
 }
 
-.version-timeline::before {
-  content: '';
-  position: absolute;
-  left: 50px;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: var(--primary);
-  border-radius: var(--radius-full);
-}
-
-.version-item {
+.version-item-horizontal {
   position: relative;
-  margin-bottom: var(--space-lg);
+  flex: 1;
+  text-align: center;
+  padding-top: var(--space-md);
 }
 
-.version-year {
+.version-dot-horizontal {
   position: absolute;
-  left: -100px;
-  width: 80px;
-  text-align: right;
-  font-weight: 600;
-  color: var(--primary);
-}
-
-.version-dot {
-  position: absolute;
-  left: 46px;
-  top: 5px;
-  width: 12px;
-  height: 12px;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
   background: var(--primary);
   border-radius: 50%;
   border: 3px solid white;
   box-shadow: 0 0 0 2px var(--primary);
+  z-index: 1;
 }
 
 .version-info {
   background: white;
+  margin-top: var(--space-sm);
   padding: var(--space-md);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
 }
 
-.version-info h4 {
+.version-year {
+  font-weight: bold;
   color: var(--primary);
   margin-bottom: var(--space-xs);
 }
 
-@media (max-width: 768px) {
-  .metric-grid {
-    flex-direction: column;
-  }
-  
-  .version-timeline {
-    padding-left: 60px;
-  }
-  
-  .version-year {
-    left: -60px;
-    width: 50px;
-    font-size: 0.9rem;
-  }
-  
-  .version-dot {
-    left: 26px;
-  }
-}
 
 /* Tarjetas de estadísticas */
 .stats-grid {
